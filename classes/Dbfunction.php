@@ -6,9 +6,15 @@ session_start();
  * and open the template in the editor.
  */
 include_once './classes/Dbconnection.php';
-include_once './classes/Tablefunction.php';
 class Dbfunction{
-  $table=new Tablefunction();
+  private $usertable="user";
+  private $post_table="posts";
+  public function getUsertable(){
+    return $this->usertable;
+  }
+  public function getPosttable(){
+    return $this->post_table;
+  }
     public function select_data($sql) {
           $db = new Dbconnection();
           $result = mysqli_query($db->getConn(), $sql);
